@@ -1,0 +1,33 @@
+import random
+
+def determine_winner(user, computer):
+    if user == computer:
+        return "Tie"
+    
+    combinations = {
+        "paper": "rock",
+        "rock": "scissors",
+        "scissors": "paper"
+    }
+    
+    if combinations[user] == computer:
+        return "You Win!"
+    else:
+        return "You Lose."
+    
+choices = ["rock", "paper", "scissors"]
+
+print("Welcome to Rock Paper Scissors")
+userPick = input("Please enter rock, paper, or scissors\n").lower()
+
+if userPick not in choices:
+    print("Invalid option. Please enter rock, paper, or scissors.")
+    
+else:
+    computerPick = random.choice(choices)
+    result = determine_winner(userPick, computerPick)
+    print(result)
+    if result == "Tie":
+        print(f"Computer also picked {computerPick}")
+    else:
+        print(f"Computer picked {computerPick}")
